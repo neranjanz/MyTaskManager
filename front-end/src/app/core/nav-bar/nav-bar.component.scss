@@ -1,0 +1,13 @@
+.menulink {
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 15px;
+}
+
+.menulink:hover {
+    font-weight: 700;
+}
+
+.menuitem > .dropdown-item {
+    cursor: pointer;
+}

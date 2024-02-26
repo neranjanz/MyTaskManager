@@ -1,0 +1,11 @@
+<div class="border p-3 rounded">
+        <h4 class="mb-3">Task List</h4>
+        <div class="list-group">
+            <a *ngFor="let item of taskList;" href="#" class="list-group-item list-group-item-action" aria-current="true" (click)="onItemClick(item)">
+                <i *ngIf="!item.isCompleted" class="fa fa-times-circle me-1 text-warning" aria-hidden="true"></i>
+                <i *ngIf="item.isCompleted" class="fa fa-check-circle me-1 text-success" aria-hidden="true"></i>
+
+                {{ item.title }}
+            </a>
+        </div>
+</div>

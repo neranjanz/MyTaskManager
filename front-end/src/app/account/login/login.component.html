@@ -1,0 +1,42 @@
+<div class="container login-container">
+    <div class="row justify-content-center">
+        <div id="formBox" class="col-xl-5 col-md-8 border">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="rounded shadow-5-strong p-5">
+                    <h2 class="mb-2">Login</h2>
+                    <h5 class="mb-5">MyTask - Task Manager</h5>
+                <!-- Username input -->
+                <div class="form-outline mb-4" data-mdb-input-init>
+                    <label class="form-label" for="username">Username</label>
+                    <input type="text" formControlName="username" id="txtUsername" class="form-control" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4" data-mdb-input-init>
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" formControlName="password" id="txtPassword" class="form-control" />
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col d-flex">
+                    <!-- Remember me Checkbox -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="chkRemember" checked />
+                        <label class="form-check-label" for="lblRemember">
+                        Remember me
+                        </label>
+                    </div>
+                    </div>
+                </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Sign in</button>
+        </form>
+        <div class="row">
+            <div class="col-md-12 mb-5 px-5">
+                <p>Don't you have an account? Please create a new account here!</p>
+                <a id="lnkCreate" class="btn btn-outline btn-warning" (click)="navigateToCreate()">Create an account!</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

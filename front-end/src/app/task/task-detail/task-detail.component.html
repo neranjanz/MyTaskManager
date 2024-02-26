@@ -1,0 +1,27 @@
+        <div class="border p-3 rounded">
+
+            <h4 class="my-3">Selected Task Detail</h4>
+            <form [formGroup]="taskDetail">
+                <div class="mb-4">
+                    <label for="task" class="form-label">Task</label>
+                    <input type="text" class="form-control" formControlName="title">
+                </div>
+                <div class="form-check mb-5">
+                    <input type="checkbox" formControlName="isCompleted" class="form-check-input">
+                    <label class="form-check-label" for="isCompleted">Is Completed</label>
+                </div>
+                <button id="btnUpdate"  class="btn btn-outline-primary me-2" (click)="onEditTask()">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    Update
+                </button>
+                <button id="btnReset"  class="btn btn-outline-success me-2" (click)="onResetTask()">
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                    Reset
+                </button>
+                <button id="btnDelete"  class="btn btn-outline-danger" (click)="onDeleteTask()">
+                    <i class="fa fa-trash"></i>
+                    Delete
+                </button>
+            </form>
+        </div>
+                        

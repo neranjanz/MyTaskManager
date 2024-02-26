@@ -1,0 +1,31 @@
+<div class="container register-container">
+    <div class="row justify-content-center">
+        <div id="formBox" class="col-xl-5 col-md-8 border">
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="rounded shadow-5-strong p-5">
+                    <h2 class="mb-2">Sign up</h2>
+                    <h5 class="mb-3">MyTask - Task Manager</h5>
+                    <p class="mb-4 mt-4">Don't you have an account? Please create a new account here!</p>
+                <!-- Username input -->
+                <div class="form-outline mb-4" data-mdb-input-init>
+                    <label class="form-label" for="username">Username</label>
+                    <input type="text" formControlName="username" id="txtUsername" class="form-control" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4" data-mdb-input-init>
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" formControlName="password" id="txtPassword" class="form-control" />
+                </div>
+
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Create</button>
+        </form>
+        <div class="row">
+            <div class="col-md-12 mb-5 px-5">
+                <!-- <a id="lnkCreate" class="btn btn-outline btn-success" (click)="navigateToLogin()">Back to Login</a> -->
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

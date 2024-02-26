@@ -1,0 +1,58 @@
+<header class="d-flex flex-md-row align-items-center justify-content-between p-3 px-4 mb-3 border-bottom bg-white fixed-top shadow-sm">
+<!-- <header class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-4 mb-3 border-bottom fixed-top shadow-sm"> -->
+
+    <img src="assets/images/completed-task.png" title="MyTasks" alt="MyTask" routerLink="/" style="max-height: 40px; cursor: pointer;">
+      <nav class="my-2">
+        <a class="p-2 text-primary text-decoration-none menulink" routerLink="/">
+            <i class="fa fa-tasks me-1 text-primary" aria-hidden="true"></i>
+            My Tasks</a>
+        <!-- <a class="p-2 text-dark text-decoration-none" href="#">Task List</a> -->
+        <!-- <a class="p-2 text-dark text-decoration-none" href="#">Support</a>
+        <a class="p-2 text-dark text-decoration-none" href="#">Pricing</a> -->
+      </nav>
+<ng-container *ngIf="(accountService.currentUser$ | async) === null">
+  <div class="d-flex align-items-center">
+    <a class="btn btn-outline-secondary me-2" routerLink="/account/login">Login</a>
+    <a class="btn btn-outline-secondary me-3" routerLink="/account/register">Sign up</a>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="(accountService.currentUser$ | async) !== null">
+
+  <!-- <p>Welcome {{user?.username}}</p> -->
+  <!-- <div class="dropdown ms-3 me-5">
+    <a *dropdownToggle class="dropdown-toggle">
+      <strong>Welcome {{user?.username}}</strong>
+    </a>
+    <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+        <li class="py-1">
+          <a (click)="accountService.logout()" class="dropdown-item"></a>
+          <i class="fa fa-sign-out me-3"></i> Logout
+        </li>
+    </ul>
+  </div> -->
+
+  <!-- <div class="btn-group" dropdown>
+    <btn id="button-basic" dropdownToggle type="button" class="btn btn-warning dropdown-toggle" href="#">
+      <strong>Welcome {{user?.username}}</strong>
+    </btn>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+        role="menu" aria-labelledby="button-basic">
+      <li role="menuitem"><a class="dropdown-item" (click)="accountService.logout()" >Logout</a></li>
+    </ul>
+  </div> -->
+
+  <div class="btn-group" dropdown>
+    <button id="button-basic" dropdownToggle type="button" class="btn btn-warning dropdown-toggle"
+            aria-controls="dropdown-basic">
+            <strong>Welcome {{user?.username}}<span class="caret ms-1"></span></strong> 
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+        role="menu" aria-labelledby="button-basic">
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="accountService.logout()">Logout</a></li>
+    </ul>
+  </div>
+
+
+</ng-container>
+</header>

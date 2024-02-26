@@ -1,0 +1,66 @@
+
+<ng-container *ngIf="(accountService.currentUser$ | async) !== null">
+    <div class="container mt-5">
+
+        <div class="p-4 mb-4 bg-body-secondary rounded-3">
+          <div class="container-fluid py-2">
+            <h1 class="display-5 fw-bold">{{appTitle}}</h1>
+            <p class="col-md-8 fs-4">An easy task management tool for managing your daily tasks.</p>
+          </div>
+        </div>
+  
+        <div class="container">
+        <div class="row">
+            <div class="col-md-6 border py-3 px-4 rounded">
+                <form [formGroup]="newTaskForm" (ngSubmit)="onAddTask()">
+                    <div class="mb-4">
+                        <label for="task" class="form-label">Task</label>
+                        <input type="text" formControlName="title" class="form-control" id="txtTask" placeholder="Add New Task">
+                    </div>
+                    <button id="btnAdd"  class="btn btn-outline-success">
+                        <i class="fa fa-plus-circle"></i>
+                        Add Task</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <section class="col-md-6 offset-md-6">
+                        <h6 class="text-primary mb-3 mt-3">Sort your tasks</h6>
+                        <select class="form-select mb-4" (change)="onSortSelected($event)">
+                            <option *ngFor="let sort of sortOptions" [value]="sort.value">{{ sort.name }}</option>
+                        </select>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="col-md-6 offset-md-6">
+                        <h6 class="text-primary mb-3 mt-3">Filter your tasks</h6>
+                        <select class="form-select mb-3 mt-3" (change)="onFilterSelected($event)">
+                            <option *ngFor="let filter of filterOptions" [value]="filter.value">{{ filter.name }}</option>
+                        </select>
+                    </section>
+                </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+          <div class="col-md-6">
+              <app-task-list [taskList]="tasks" (selectedTask)="getSelectedTask($event)"></app-task-list>
+          </div>
+          <div class="col-md-5 offset-md-1">
+              <app-task-detail (isUpdatedList)="loadTaskItems()"></app-task-detail>
+          </div>
+      </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="(accountService.currentUser$ | async) === null">
+    <div class="p-4 mb-4 bg-body-secondary rounded-3">
+        <div class="container-fluid py-2">
+          <h1 class="display-5 fw-bold">{{appTitle}}</h1>
+          <p class="col-md-8 fs-4">An easy task management tool for managing your daily tasks.</p>
+        </div>
+      </div>
+      <div class="my-5">
+        <p class="col-md-8 fs-4">Please login to proceed!</p>
+      </div>
+</ng-container>
